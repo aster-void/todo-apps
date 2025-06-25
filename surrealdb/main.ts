@@ -1,7 +1,8 @@
-import Surreal from "surrealdb";
-import { SurrealdbNodeEngine } from "@surrealdb/node";
+import { Surreal } from "surrealdb";
+import { surrealdbNodeEngines } from "@surrealdb/node";
 
 const db = new Surreal({
-	engines: new SurrealdbNodeEngine(),
+	engines: surrealdbNodeEngines(),
 });
-await db.connect("file:local.db");
+await db.connect("mem://");
+await db.close();
